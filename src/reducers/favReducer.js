@@ -1,9 +1,9 @@
-import { TOGGLE_FAVORITES, ADD_FAVORITES, REMOVE_FAVORITE } from "../actions/movieActions";
+import { TOGGLE_FAVORITES, ADD_FAVORITES, REMOVE_FAVORITES } from "../actions/movieActions";
 
 
 const initialState = {
-    favorites: [],
-    displayFavorites: false
+    favorites: [{title: 'AHHH', id:1}],
+    displayFavorites: true
 }
 
 const reducer = (state = initialState, action) =>{
@@ -16,12 +16,12 @@ const reducer = (state = initialState, action) =>{
         case ADD_FAVORITES: 
             return {
                 ...state,
-                favorites: [...state.favorites, {movie: action.payload}]
+                favorites: [...state.favorites, action.payload]
             };
-        case REMOVE_FAVORITE:
+        case REMOVE_FAVORITES:
             return {
                 ...state,
-                favorites: [...state.favorites.remove(action.payload)]
+                favorites: state.filter(item=>(item.id !== action.payload))
             };
         default:
             return state;

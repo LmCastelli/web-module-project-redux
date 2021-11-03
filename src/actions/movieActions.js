@@ -2,7 +2,9 @@ export const DELETE_MOVIE = "DELETE_MOVIE";
 export const ADD_MOVIE = "ADD_MOVIE";
 export const TOGGLE_FAVORITES = "TOGGLE_FAVORITES";
 export const ADD_FAVORITES = "ADD_FAVORITES"
-export const REMOVE_FAVORITE = "REMOVE_FAVORITE"
+export const REMOVE_FAVORITES = "REMOVE_FAVORITES"
+
+
 
 export const deleteMovie = (id)=>{
     return({type: DELETE_MOVIE, payload:id});
@@ -21,5 +23,5 @@ export const addFavorites = (movie) => {
 }
 
 export const removeFavorites = (id) => {
-    return({type: REMOVE_FAVORITE, payload:id})
+    return({type: REMOVE_FAVORITES, payload:id})
 }
