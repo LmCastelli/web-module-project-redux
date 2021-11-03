@@ -11,17 +11,17 @@ const reducer = (state = initialState, action) =>{
         case TOGGLE_FAVORITES:
             return {
                 ...state,
-                displayFavorites: !displayFavorites
+                displayFavorites: !state.displayFavorites
             };
-        case ADD_FAVORITE: 
+        case ADD_FAVORITES: 
             return {
                 ...state,
-                favorites: [...state.favorites, movie]
+                favorites: [...state.favorites, {movie: action.payload}]
             };
         case REMOVE_FAVORITE:
             return {
                 ...state,
-                favorites: [...state.favorites.remove(id)]
+                favorites: [...state.favorites.remove(action.payload)]
             };
         default:
             return state;
